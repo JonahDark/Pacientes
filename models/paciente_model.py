@@ -53,6 +53,6 @@ class paciente_model(models.Model):
     @api.constrains("fechaNac")
     def _esMayorDeEdad(self):
         añoHoy = datetime.today().year
-        añoNac = int(self.fechaNac.year())
+        añoNac = self.fechaNac.year
         if (añoHoy - añoNac) < 18:
             raise ValidationError("El paciente debe de ser mayor de edad")
