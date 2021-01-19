@@ -1,0 +1,73 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pacientes_app.listado_paciente_tree">
+      <field name="name">Listado pacientes</field>
+      <field name="model">pacientes_app.paciente_model</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="apellidos" />
+          <field name="fechaNac" />
+          <field name="dni" />
+          <field name="telefono" />
+          <field name="email" />
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="pacientes_app.model_paciente_form">
+      <field name="name">Formulario pacientes</field>
+      <field name="model">pacientes_app.paciente_model</field>
+      <field name="arch" type="xml">
+        <form string="Nuevo Paciente">
+          <sheet>
+
+            <h2 style="color:#a256a0;">Datos Personales</h2>
+            <group name="padre">              
+              <group name="1">                
+                <label for="dni" class="oe_edit_only"></label>
+                <h1>
+                  <field name="dni" />
+                </h1>
+                <field name="name" />
+                <field name="apellidos" />
+                <field name="fechaNac" />
+                <field name="telefono" />
+                <field name="email" widget="email" />
+                <field name="numVisitas" />
+              </group>
+
+              <group name="2">
+                <label for="foto" class="oe_edit_only" />
+                <field name="foto" widget="image" width="40%" heigth="40%" />
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Visitas">
+                <group name="2">
+                  <field name="visitas" />
+                </group>
+              </page>
+            </notebook>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pacientes_app.menu_pacientes_action">
+      <field name="name">Listado de pacientes</field>
+      <field name="res_model">pacientes_app.paciente_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

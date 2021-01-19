@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pacientes_app.listado_visita_tree">
+      <field name="name">Listado visitas</field>
+      <field name="model">pacientes_app.visita_model</field>
+      <field name="arch" type="xml">
+        <tree>  
+          <field name="visita" />        
+          <field name="fecha" />
+          <field name="detalle" />          
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="pacientes_app.model_visita_form">
+      <field name="name">Formulario Visitas</field>
+      <field name="model">pacientes_app.visita_model</field>
+      <field name="arch" type="xml">
+        <form string="Nueva Visita">
+          <sheet>
+            <group>
+            <field name="visita" />
+            <field name="fecha" />
+            <field name="detalle" />            
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pacientes_app.menu_visitas_action">
+      <field name="name">Listado de visitas</field>
+      <field name="res_model">pacientes_app.visita_model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
