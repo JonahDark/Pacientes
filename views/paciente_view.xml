@@ -25,6 +25,9 @@
       <field name="model">pacientes_app.paciente_model</field>
       <field name="arch" type="xml">
         <form string="Nuevo Paciente">
+          <header>
+            <button name="limpiaHistorial" type="object" string="Limpiar Historial" class="oe_highlight" confirm="¿Desea eliminar el historial?"></button>
+          </header>
           <sheet>
 
             <h2 style="color:#a256a0;">Datos Personales</h2>

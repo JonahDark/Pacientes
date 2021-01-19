@@ -26,6 +26,10 @@ class paciente_model(models.Model):
     numVisitas = fields.Integer(
         string="Visitas", compute="_numVisitas", help="Numero de visitas")
 
+    def limpiaHistorial(self):
+        for v in self:
+            v.visitas = [(5, 0, 0)]
+
     @api.depends("visitas")
     def _numVisitas(self):
         self.numVisitas = len(self.visitas)
