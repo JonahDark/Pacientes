@@ -27,8 +27,8 @@ class paciente_model(models.Model):
         string="Visitas", compute="_numVisitas", help="Numero de visitas")
 
     def limpiaHistorial(self):
-        for v in self:
-            v.visitas = [(5, 0, 0)]
+        for i in self.visitas:
+            i.unlink()
 
     @api.depends("visitas")
     def _numVisitas(self):
